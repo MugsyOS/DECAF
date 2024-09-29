@@ -2,11 +2,11 @@ import { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { eq } from 'drizzle-orm';
-import { db } from '../../conf/db'; // Assuming you have a db.ts file with your Drizzle setup
-import { users } from '../../conf/schema'; // Importing the users table from your schema
+import { db } from '../../conf/db';
+import { users } from '../../conf/schema';
 
 const JWT_SECRET = process.env.JWT_SECRET;
-const SALT_ROUNDS = 10; // Number of salt rounds for bcrypt
+const SALT_ROUNDS = 10;
 
 export interface AuthRequest extends Request {
   user?: {
